@@ -1,25 +1,37 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view></router-view>
+    <!-- <keep-alive> -->
+      <!-- <my-head></my-head>
+      <index-rel></index-rel>
+      <router-view></router-view>
+      <navbar></navbar> -->
+    <!-- </keep-alive> -->
   </div>
 </template>
+<script>
+  // import index from '@/views/home/index'
+  import myHead from '@/views/home/components/head'
+  import indexRel from '@/views/home/components/rel'
+  import navbar from '@/views/navbar/barfixed'
+  export default {
+    name: 'App',
+    components: {
+      // index,
+      myHead,
+      indexRel,
+      navbar
+    },
+    data() {
+      return {
+        
+      }
+    },
+    methods: {
+      
+    }
+  }
+</script>
 <style lang="stylus">
-#app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
 
-#nav
-  padding 30px
-  a
-    font-weight bold
-    color #2c3e50
-    &.router-link-exact-active
-      color #42b983
 </style>
