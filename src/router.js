@@ -28,7 +28,7 @@ export default new Router({
           component: coming
         }
       ],
-      redirect: '/hot'
+      redirect: '/hot' || '/recoming'
     },
     {
       path: '/city',

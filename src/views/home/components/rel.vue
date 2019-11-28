@@ -1,7 +1,7 @@
 <template>
   <div class="menu-wrap">
     <ul class="menu">
-      <router-link to="/city" tag="li">郑州<i class="iconfont">&#xe634;</i></router-link>
+      <router-link to="/city" tag="li">{{city.nm}}<i class="iconfont">&#xe634;</i></router-link>
       <router-link to="/hot" tag="li" exact>正在热映</router-link>
       <router-link to="/recoming" tag="li">即将上映</router-link>
       <li><i class="el-icon-search"></i></li>
@@ -9,8 +9,12 @@
   </div>
 </template>
 <script>
+  import { mapState } from 'vuex'
   export default {
     name: 'indexRel',
+    computed: {
+      ...mapState({city:'city'})
+    },
     components: {
     
     },

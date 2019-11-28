@@ -22,6 +22,7 @@
 </template>
 <script>
   import BScroll from 'better-scroll'
+  import { mapState } from 'vuex'
   export default {
     name: 'indexList',
     data() {
@@ -32,9 +33,14 @@
         moviesID: []
       }
     },
+    computed:{
+      ...mapState({
+        city: 'city'
+      })
+    },
     methods: {
       getMovies() {
-        this.$axios.get('/api/ajax/movieOnInfoList?token=').then((res) => {
+        this.$axios.get('/api/ajax/movieOnInfoList?token=1574908882&cityid=' + this.city.id).then((res) => {
         for (var i = 0; i< res.data.movieList.length; i++) {
           res.data.movieList[i].img = res.data.movieList[i].img.replace("w.h","128.180")
           res.data.movieList[i].version = res.data.movieList[i].version.substr(1).toUpperCase()
