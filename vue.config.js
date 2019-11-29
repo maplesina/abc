@@ -1,6 +1,7 @@
+
 module.exports = {
   devServer: {
-    // 设置反向代理
+    // 设置代理
     // proxy: 'http://m.maoyan.com'
     proxy: {
       '/api': {
@@ -17,5 +18,6 @@ module.exports = {
         changeOrigin: true
       }
     }
-  }
+  },
+  publicPath: process.env.NODE_ENV === 'production'? './' : ''
 }

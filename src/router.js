@@ -6,6 +6,7 @@ import coming from './views/recent/recent.vue' //首页近期上映组件
 import indexList from './views/home/components/indexList.vue' //首页正在热映组件
 import cinemaIndex from './views/cinema/index' //影院组件
 import mineIndex from './views/mine/index' //影院组件
+import moviesIndex from './views/movies/index' //影院组件
 
 Vue.use(Router)
 
@@ -44,6 +45,11 @@ export default new Router({
       path: '/mine',
       name: 'mine',
       component: mineIndex
+    },
+    {
+      path: '/movies/:id',
+      name: 'movies',
+      component: moviesIndex
     }
   ]
 })

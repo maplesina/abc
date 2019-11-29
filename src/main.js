@@ -9,7 +9,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
- 
+import LazyLoad from 'vue-lazyload'
 // require styles
 import 'swiper/dist/css/swiper.css'
  
@@ -17,6 +17,9 @@ Vue.use(VueAwesomeSwiper, /* { default global options } */)
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+Vue.use(LazyLoad,{
+  loading:  'statck/load.gif'
+})
 new Vue({
   router,
   store,

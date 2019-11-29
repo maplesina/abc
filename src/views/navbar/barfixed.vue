@@ -23,7 +23,12 @@
 </template>
 <script>
 export default {
- name:'navbar'
+  name:'navbar',
+  data() {
+    return {
+      
+    }
+  },
 }
 </script>
 <style lang="stylus" scoped>

@@ -3,11 +3,13 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+var id =  JSON.parse(localStorage.getItem('city'))?JSON.parse(localStorage.getItem('city')).id : 73
+var nm = JSON.parse(localStorage.getItem('city'))?JSON.parse(localStorage.getItem('city')).nm : '郑州'
 export default new Vuex.Store({
   state: {
     'city': {
-      'id': JSON.parse(localStorage.getItem('city')).id || 73,
-      'nm': JSON.parse(localStorage.getItem('city')).nm || '郑州'
+      'id': id,
+      'nm': nm
     },
     'recentCity': [{'id':10,'nm':'上海'},{'id':42,'nm':'西安'},{'id':50,'nm':'杭州'}]
   },

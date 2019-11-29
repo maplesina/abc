@@ -1,8 +1,8 @@
 <template>
   <div class="wrap" ref="wrap">
     <div>
-      <div v-for="(item,index) in movieList" :key="index" class="container">
-        <img :src="item.img" alt="" class="img-item">
+      <div v-for="(item,index) in movieList" :key="index" class="container" @click="enterMovies(item.id, item.nm)">
+        <img v-lazy="item.img" alt="" class="img-item">
         <div class="colum-content">
           <div class="clearfix">
             <h4 class="title ellp">{{item.nm}}</h4>
@@ -39,8 +39,15 @@
       })
     },
     methods: {
+      // 进入电影详情页
+      enterMovies(movId,movNm){
+        console.log(movId)
+         this.$router.push({ name: "movies",params:{'id':movId, 'cityid': this.city.id, movNm}});
+         localStorage.movNm = movNm
+      },
+      // 根据城市id拿到上映的电影
       getMovies() {
-        this.$axios.get('/api/ajax/movieOnInfoList?token=1574908882&cityid=' + this.city.id).then((res) => {
+        this.$axios.get('/api/ajax/movieOnInfoList?token=&cityid=' + this.city.id).then((res) => {
         for (var i = 0; i< res.data.movieList.length; i++) {
           res.data.movieList[i].img = res.data.movieList[i].img.replace("w.h","128.180")
           res.data.movieList[i].version = res.data.movieList[i].version.substr(1).toUpperCase()

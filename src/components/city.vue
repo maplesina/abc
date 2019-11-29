@@ -12,7 +12,7 @@
     <div class="wrap" ref="wrap">
       <div>
         <el-row>
-          <el-col :span="24" class="pos" ref="pos" >定位城市</el-col>
+          <el-col :span="24" class="pos">定位城市</el-col>
         </el-row>
         <div class="inner-content clearfix">
           <div class="inner-item local-city">定位失败，请点击重试</div>
@@ -58,7 +58,6 @@
 <script>
 import { mapState } from "vuex";
 import BScroll from "better-scroll";
-import { log } from 'util';
 export default {
   name: "city",
   data() {
@@ -127,7 +126,7 @@ export default {
             //遍历对象
             // console.log(key)
             key = key.toLowerCase();
-            this.cityList.forEach((value, index) => {
+            this.cityList.forEach((value) => {
               // console.log(key)
               var arr = that.sort[dex][key.toUpperCase()];
               var letter = value.py;
